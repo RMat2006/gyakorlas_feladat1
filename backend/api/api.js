@@ -41,4 +41,24 @@ router.get('/testsql', async (request, response) => {
     }
 });
 
+const messages = []; // Top-Level Code
+router.post('/sendMessage', async (request, response)=>{
+
+    
+    const sender = request.body.sender;
+    const message = request.body.message;
+
+    messages.push({
+        sender: sender,
+        message: message
+    })
+
+    console.log(messages);
+    response.status(200).json({
+        message:'Üzenet fogadva'
+    });
+})
+
+
+
 module.exports = router;
